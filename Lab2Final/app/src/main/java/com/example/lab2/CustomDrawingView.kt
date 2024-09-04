@@ -38,10 +38,13 @@ class CustomDrawingView(context: Context, attrs: AttributeSet) : View(context, a
         return false
     }
 
+    //Set the color to draw
+    //Draw a circle at the touch point
+    //Redraw the view using invalidate()
     private fun drawCircleAtTouch(x: Float, y: Float) {
-        paint.color = Color.BLACK // Set the color to draw
-        bitmapCanvas.drawCircle(x, y, 10f, paint) // Draw a circle at the touch point
-        invalidate() // Redraw the view
+        paint.color = Color.BLACK
+        bitmapCanvas.drawCircle(x, y, 10f, paint)
+        invalidate()
     }
 
     fun setBitmap(newBitmap: Bitmap) {

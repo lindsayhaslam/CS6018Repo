@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
 
-        // Setup the initial fragment
+        //Setup the initial fragment
         binding.fragmentContainer.getFragment<StartFragment>().setButtonFunction {
             val drawingFragment = DrawingFragment()
             val transaction = this.supportFragmentManager.beginTransaction()

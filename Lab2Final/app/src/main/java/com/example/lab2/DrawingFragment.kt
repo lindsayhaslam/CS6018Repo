@@ -1,6 +1,5 @@
 package com.example.lab2
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +21,7 @@ class DrawingFragment : Fragment() {
     ): View {
         _binding = FragmentDrawingBinding.inflate(inflater, container, false)
 
-        // Restore the previous drawing if available
+        //Restore the previous drawing if available
         viewModel.getDrawingBitmap()?.let {
             binding.customDrawingView.setBitmap(it)
         }
@@ -36,10 +35,11 @@ class DrawingFragment : Fragment() {
         return binding.root
     }
 
+    //Save the current drawing to the ViewModel
+    //Clear the binding reference to avoid memory leaks
     override fun onDestroyView() {
         super.onDestroyView()
-        // Save the current drawing to the ViewModel
         viewModel.setDrawingBitmap(binding.customDrawingView.getBitmap())
-        _binding = null // Clear the binding reference to avoid memory leaks
+        _binding = null
     }
 }
