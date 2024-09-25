@@ -35,16 +35,14 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val currentJoke by vm.currentJoke.observeAsState()
                     Column {
-                        //BUTTON
-                        FetchJokeSection(onFetchClick = { vm.fetchJoke() })
+
+                        Spacer(modifier = Modifier.padding(32.dp))
 
                         //DISPLAY FOR CURRENT JOKE
                         JokeDisplay(currentJoke)
 
-                        Spacer(modifier = Modifier.padding(32.dp))
-
-                        //MIGHT NOT NEED THIS
-                        DisappearingSection()
+                        //BUTTON
+                        FetchJokeSection(onFetchClick = { vm.fetchJoke() })
 
                         Spacer(modifier = Modifier.padding(16.dp))
 
@@ -84,26 +82,3 @@ fun JokeDisplay(jokeData: JokeData?) {
     }
 }
 
-@Composable
-fun DisappearingSection() {
-    var showTop by remember { mutableStateOf(true) }
-    val coroutineScope = rememberCoroutineScope()
-    LaunchedEffect(key1 = null) {
-        coroutineScope.launch {
-            while (true) {
-                delay(2000)
-                showTop = !showTop
-            }
-        }
-    }
-    AnimatedVisibility(visible = showTop) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(100.dp)
-                .background(MaterialTheme.colorScheme.primary)
-        ) {
-            Text("Animated Visibility Demo", modifier = Modifier.align(Alignment.CenterVertically))
-        }
-    }
-}

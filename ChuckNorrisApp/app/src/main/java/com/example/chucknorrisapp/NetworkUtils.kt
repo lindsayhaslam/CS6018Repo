@@ -16,7 +16,7 @@ object NetworkUtils {
                     connection.inputStream.bufferedReader().use { reader ->
                         val response = reader.readText()
                         val jsonObject = JSONObject(response)
-                        jsonObject.getString("value") 
+                        jsonObject.getString("value")
                     }
                 } else {
                     throw Exception("Error fetching joke: ${connection.responseCode}")
