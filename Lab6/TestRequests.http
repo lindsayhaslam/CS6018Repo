@@ -1,0 +1,50 @@
+### Create a new post
+POST http://127.0.0.1:8080/posts/create
+Content-Type: application/json
+
+{
+  "text": "This is the first post!"
+}
+
+###
+
+POST http://127.0.0.1:8080/posts/create
+Content-Type: application/json
+
+{
+  "text": "Another interesting post for the community."
+}
+
+###
+
+POST http://127.0.0.1:8080/posts/create
+Content-Type: application/json
+
+{
+  "text": "Final post for testing."
+}
+
+###
+
+### Get all posts
+GET http://127.0.0.1:8080/posts
+
+###
+
+### Get posts since a specific timestamp
+GET http://127.0.0.1:8080/posts/since/1672502400000
+
+###
+
+###Get a specific post by ID
+GET http://127.0.0.1:8080/posts/1
+
+###
+
+###Delete a post by ID
+DELETE http://127.0.0.1:8080/posts/delete/1
+
+###
+
+DELETE http://127.0.0.1:8080/posts/delete/2
+
